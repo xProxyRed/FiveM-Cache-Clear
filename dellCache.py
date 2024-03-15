@@ -3,12 +3,12 @@ import tkinter as tk
 from tkinter import messagebox
 
 local = os.getenv('LOCALAPPDATA')
-cache_path = local + '\\FiveM\\FiveM.app\\data'
+cache_path = local + '\\FiveM\\FiveM.app\\data\\cache'
 
-def delete_files(path):
+def main(path):
     def on_confirm():
         messagebox.showinfo("Bestätigung", "Die Dateien wurden gelöscht.")
-        delete_recursive(path)
+        delete_files(path)
 
     def on_cancel():
         messagebox.showinfo("Abgebrochen", "Das Löschen der Datei wurde abgebrochen.")
@@ -23,7 +23,7 @@ def delete_files(path):
     else:
         on_cancel()
 
-def delete_recursive(path):
+def delete_files(path):
     for root, dirs, files in os.walk(path, topdown=False):
         for file in files:
             file_path = os.path.join(root, file)
@@ -32,4 +32,4 @@ def delete_recursive(path):
             dir_path = os.path.join(root, dir)
             os.rmdir(dir_path)
 
-delete_files(cache_path)
+main(cache_path)
