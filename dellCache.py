@@ -20,7 +20,8 @@ def on_download():
 
 def main():
     global remote_version
-    remote_version = urllib.request.urlopen("https://raw.githubusercontent.com/xProxyRed/FiveM-Cache-Clear/main/version").read().decode("utf-8").strip()
+    req = urllib.request.Request("https://raw.githubusercontent.com/xProxyRed/FiveM-Cache-Clear/main/version", headers={'Cache-Control': 'no-cache'})
+    remote_version = urllib.request.urlopen(req).read().decode("utf-8").strip()
     if remote_version != version:
         result = messagebox.askyesno("Aktualisierung", "Eine neue Version ({}) ist verfügbar. Möchtest du sie jetzt herunterladen?".format(remote_version))
         if result:
