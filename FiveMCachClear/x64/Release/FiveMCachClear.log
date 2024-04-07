@@ -1,0 +1,2 @@
+﻿FiveMCachClear.obj : error LNK2001: Nicht aufgelöstes externes Symbol "URLDownloadToFileW".
+C:\Users\Root\Desktop\FiveM Cache\C++\FiveMCachClear\x64\Release\FiveMCachClear.exe : fatal error LNK1120: 1 nicht aufgelöste Externe
